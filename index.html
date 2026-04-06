@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahuja Di Clip Production | Your Shaadi Blockbuster</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Custom Config & Animations -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        brand: {
+                            cream: '#FFFBF2', // Warm, inviting background
+                            pink: '#E83253',  // Rani pink for vibrant accents
+                            gold: '#F5A623',  // Haldi/Marigold yellow for buttons
+                            brown: '#2D231E', // Espresso brown for soft, readable text
+                            green: '#1B4332'  // Mehendi green for premium feel
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Friendly, rounded scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FFFBF2; }
+        ::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 10px; border: 2px solid #FFFBF2; }
+        ::-webkit-scrollbar-thumb:hover { background: #E83253; }
+        
+        /* Soft image shadows */
+        .soft-shadow {
+            box-shadow: 0 20px 40px -15px rgba(232, 50, 83, 0.15);
+        }
+        
+        /* Punjabi Interactive Stickers */
+        .punjabi-sticker {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: 4px solid white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px -5px rgba(232, 50, 83, 0.25);
+            font-size: 2.5rem;
+            width: 4.5rem;
+            height: 4.5rem;
+            z-index: 30;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto;
+            cursor: pointer;
+        }
+        .punjabi-sticker:hover {
+            transform: scale(1.2) rotate(0deg) !important;
+            box-shadow: 0 15px 30px -5px rgba(232, 50, 83, 0.4);
+            z-index: 40;
+        }
+        
+        /* Modal Animation */
+        .modal-enter { 
+            animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
+        }
+        @keyframes modalPop {
+            0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-brand-cream text-brand-brown font-sans selection:bg-brand-pink selection:text-white overflow-x-hidden">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-brand-gold/20 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24">
+                <!-- BRANDING -->
+                <div class="flex items-center cursor-pointer group" onclick="showPage('home')">
+                    <div class="bg-brand-pink/10 p-2 rounded-xl mr-3 group-hover:bg-brand-pink/20 transition-colors">
+                        <i class="fa-solid fa-film text-2xl md:text-3xl text-brand-pink group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-serif text-xl md:text-2xl text-brand-brown tracking-wide font-bold">
+                            Ahuja <span class="text-brand-pink italic">Di Clip</span>
+                        </h1>
+                        <p class="text-[9px] md:text-[10px] tracking-[0.2em] text-brand-gold font-bold uppercase mt-0.5">Production</p>
+                    </div>
+                </div>
+
+                <!-- DESKTOP NAV -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="showPage('home')" class="nav-link text-brand-pink font-semibold text-sm uppercase tracking-wider transition-colors duration-300" data-target="home">The Vibe</button>
+                    <button onclick="showPage('packages')" class="nav-link text-gray-500 hover:text-brand-pink font-medium text-sm uppercase tracking-wider transition-colors duration-300" data-target="packages">Packages</button>
+                    <button onclick="showPage('directors')" class="nav-link text-gray-500 hover:text-brand-pink font-medium text-sm uppercase tracking-wider transition-colors duration-300" data-target="directors">The Crew</button>
+                    <button onclick="showPage('treatment')" class="nav-link text-gray-500 hover:text-brand-pink font-medium text-sm uppercase tracking-wider transition-colors duration-300" data-target="treatment">VIP Extras</button>
+                    <button onclick="showPage('gallery')" class="nav-link text-gray-500 hover:text-brand-pink font-medium text-sm uppercase tracking-wider transition-colors duration-300" data-target="gallery">Hit Movies</button>
+                    <button onclick="showPage('quiz')" class="nav-link text-brand-pink bg-brand-pink/10 px-4 py-2 rounded-full font-bold text-sm uppercase tracking-wider transition-colors duration-300 hover:bg-brand-pink hover:text-white" data-target="quiz"><i class="fa-solid fa-clapperboard mr-1"></i> Vibe Quiz</button>
+                    <button onclick="openWhatsApp('Sat Sri Akal Ahuja Di Clip Production! I am ready for my Main Character moment. Let\'s talk.')" class="bg-brand-gold text-brand-brown px-6 py-2.5 rounded-full text-sm uppercase tracking-wider font-bold shadow-md hover:bg-brand-pink hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                        Book Now
+                    </button>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-brand-pink p-2 bg-brand-pink/10 rounded-full">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE NAV DROPDOWN -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brand-pink/10 relative z-40 shadow-xl rounded-b-3xl">
+            <div class="px-6 pt-4 pb-8 space-y-3">
+                <button onclick="showPage('home')" class="mobile-nav-link block w-full text-left px-4 py-3 rounded-2xl text-sm uppercase tracking-wider text-brand-pink bg-brand-pink/5 font-bold" data-target="home">The Vibe</button>
+                <button onclick="showPage('packages')" class="mobile-nav-link block w-full text-left px-4 py-3 rounded-2xl text-sm uppercase tracking-wider text-gray-500 font-medium hover:bg-gray-50" data-target="packages">Packages</button>
+                <button onclick="showPage('directors')" class="mobile-nav-link block w-full text-left px-4 py-3 rounded-2xl text-sm uppercase tracking-wider text-gray-500 font-medium hover:bg-gray-50" data-target="directors">The Crew</button>
+                <button onclick="showPage('treatment')" class="mobile-nav-link block w-full text-left px-4 py-3 rounded-2xl text-sm uppercase tracking-wider text-gray-500 font-medium hover:bg-gray-50" data-target="treatment">VIP Extras</button>
+                <button onclick="showPage('gallery')" class="mobile-nav-link block w-full text-left px-4 py-3 rounded-2xl text-sm uppercase tracking-wider text-gray-500 font-medium hover:bg-gray-50" data-target="gallery">Hit Movies</button>
+                <button onclick="showPage('quiz')" class="mobile-nav-link block w-full text-left px-4 py-3 rounded-2xl text-sm uppercase tracking-wider text-brand-pink bg-brand-pink/10 font-bold hover:bg-brand-pink/20" data-target="quiz"><i class="fa-solid fa-clapperboard mr-2"></i> Find Your Vibe</button>
+                <button onclick="openWhatsApp('Sat Sri Akal Ahuja Di Clip Production! I am ready for my Main Character moment. Let\'s talk.')" class="block w-full text-center bg-brand-gold text-brand-brown px-4 py-4 rounded-full text-sm uppercase tracking-wider font-bold mt-6 shadow-md">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="relative z-10 pt-20 md:pt-24 min-h-screen">
+        
+        <!-- PAGE: HOME -->
+        <div id="page-home" class="page-section fade-in">
+            <!-- HERO SECTION -->
+            <section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+                <!-- Warm, colorful, happy background image -->
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2688&auto=format&fit=crop')] bg-cover bg-center md:bg-top scale-105"></div>
+                <!-- Soft warm gradient overlay instead of harsh black -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-cream via-brand-cream/80 to-white/40"></div>
+                
+                <!-- Punjabi Hero Stickers -->
+                <div class="punjabi-sticker top-1/4 left-4 md:left-16 rotate-[-15deg] hidden sm:flex">🥁</div>
+                <div class="punjabi-sticker bottom-1/4 right-4 md:right-16 rotate-[12deg] hidden sm:flex">🕺</div>
+                <div class="punjabi-sticker top-32 right-1/4 rotate-[20deg] hidden lg:flex">🎬</div>
+                <div class="punjabi-sticker bottom-16 left-1/4 rotate-[-10deg] hidden lg:flex">💃</div>
+                
+                <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+                    <span class="inline-block bg-white/80 backdrop-blur-sm text-brand-pink px-4 py-1.5 rounded-full tracking-widest uppercase text-xs md:text-sm font-bold shadow-sm mb-6 border border-brand-pink/20">Say Bye To Cringe Wedding Videos</span>
+                    <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-brand-brown mb-6 leading-tight font-bold">
+                        No Awkward Poses. <br/><span class="text-brand-pink">Just Pure Balle Balle!</span>
+                    </h1>
+                    <h2 class="font-serif text-xl md:text-3xl text-brand-gold italic mb-6">Full Main Character Energy for your Shaadi.</h2>
+                    <p class="text-gray-700 text-lg md:text-xl font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+                        We don't ask you to look at a tree and fake-smile. We capture the floor-breaking Bhangra, the sneaky Patiala pegs, and the real romance. You're getting a 10-minute cinema-level movie starring <span class="font-bold border-b-2 border-brand-pink">you.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <button onclick="showPage('packages')" class="bg-brand-gold text-brand-brown px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-brand-pink hover:text-white transition-all duration-300 w-full sm:w-auto">
+                            See Our Packages
+                        </button>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I want to drop the cringe and get a proper cinematic movie for my Shaadi. Send details!')" class="group flex items-center bg-white text-brand-brown px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center border border-gray-100">
+                            Chat with us 
+                            <i class="fa-solid fa-arrow-right ml-2 text-brand-pink group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Playful decorative elements -->
+                <div class="absolute bottom-10 left-10 hidden lg:block opacity-60">
+                    <i class="fa-solid fa-music text-4xl text-brand-pink rotate-12"></i>
+                </div>
+                <div class="absolute top-32 right-10 hidden lg:block opacity-60">
+                    <i class="fa-solid fa-star text-4xl text-brand-gold -rotate-12"></i>
+                </div>
+            </section>
+
+            <!-- THE VIBE SECTION -->
+            <section class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden soft-shadow relative group">
+                            <!-- Vibrant, happy image without grayscale -->
+                            <img src="THE PIND FLEX.png" alt="Punjabi Wedding Celebration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <!-- Warm soft gradient at bottom for text readability -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-brown/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg border border-white/20">
+                                <p class="text-brand-pink font-serif italic text-xl font-bold">The Pind Flex</p>
+                                <p class="text-brand-brown text-xs uppercase tracking-widest mt-1 font-bold">Proper Cinematic</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Vibe Stickers -->
+                        <div class="punjabi-sticker -top-6 -right-6 rotate-[15deg] hidden md:flex">🥃</div>
+                        <div class="punjabi-sticker -bottom-6 -left-6 rotate-[-15deg]">✨</div>
+
+                        <!-- Friendly decorative dots -->
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-[radial-gradient(#F5A623_3px,transparent_4px)] [background-size:16px_16px] -z-10 rounded-full opacity-50"></div>
+                        <div class="absolute -left-6 -top-6 w-32 h-32 bg-[radial-gradient(#E83253_3px,transparent_4px)] [background-size:16px_16px] -z-10 rounded-full opacity-50"></div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h2 class="font-serif text-3xl md:text-5xl text-brand-brown mb-6 font-bold leading-tight">
+                            <span class="inline-block bg-brand-gold/20 text-brand-gold px-3 py-1 rounded-full text-xs tracking-widest uppercase mb-4 font-sans font-bold">The Vibe Check</span><br/>
+                            Luxury Aesthetics meets <br/><span class="italic text-brand-pink">Proper Desi Kalesh.</span>
+                        </h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6 font-medium">
+                            Let’s be honest, weddings are beautiful but chaotic. The visual language of our films is a mix of timeless elegance (think vintage cars and royal lehengas) contrasted perfectly with the wild, floor-breaking *bhasad* of the Jago and deafening Dhol beats.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8 font-medium">
+                            We don't yell "action" and make you freeze. We jump into the DJ moshpit, survive your 100 hyperactive relatives, and frame the magic of your stolen glances. We are your ultimate hype-men, just carrying elite film studio gear.
+                        </p>
+                        <button onclick="showPage('packages')" class="group flex items-center text-brand-pink font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors">
+                            Check Out The Packages
+                            <span class="bg-brand-pink/10 group-hover:bg-brand-gold/20 p-2 rounded-full ml-3 transition-colors">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE: PACKAGES -->
+        <div id="page-packages" class="page-section hidden fade-in py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-white border border-brand-pink/20 text-brand-pink px-4 py-1.5 rounded-full tracking-widest uppercase text-xs font-bold shadow-sm mb-4">Pick Your Vibe</span>
+                <h1 class="font-serif text-4xl md:text-6xl text-brand-brown font-bold mb-4">
+                    Choose Your <span class="italic text-brand-gold">Blockbuster</span>
+                </h1>
+                <p class="text-gray-600 text-lg font-medium max-w-2xl mx-auto">
+                    From a sweet, chill memory to a full-blown Hollywood-level flex. Pick the tier that matches your energy.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- TIER 1 -->
+                <div class="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-12 relative overflow-hidden group hover:border-brand-gold/30 transition-colors duration-500">
+                    <div class="punjabi-sticker -top-4 -left-4 md:top-8 md:-left-6 rotate-[-10deg]">🪔</div>
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                        <i class="fa-solid fa-film text-9xl text-brand-brown"></i>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                        <div class="lg:col-span-8">
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="bg-gray-100 text-gray-600 text-xs px-4 py-1.5 font-bold tracking-widest uppercase rounded-full">The Basics</span>
+                                <span class="text-2xl text-brand-brown font-serif font-bold">₹1,25,000</span>
+                            </div>
+                            <h2 class="font-serif text-3xl md:text-4xl text-brand-brown mb-2 font-bold">The Classic Kissa</h2>
+                            <p class="text-brand-pink italic font-serif text-xl mb-6">"Sweet, Simple, & Totally Cringe-Free."</p>
+                            
+                            <p class="text-gray-600 font-medium text-lg mb-8 max-w-2xl">
+                                For the couple who just wants a cute, simple, and beautifully shot short film. This isn't a documentary of your Baraat or real events—it's a pre-written, adorable storyline capturing your romance with simple efforts.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-brand-cream/50 p-6 rounded-2xl">
+                                <div class="flex items-start">
+                                    <div class="bg-white p-2.5 rounded-full shadow-sm mr-4 mt-1 shrink-0">
+                                        <i class="fa-solid fa-music text-brand-gold"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-brand-brown text-sm uppercase tracking-wider font-bold mb-1">The Vibe (Music)</h4>
+                                        <p class="text-gray-500 text-sm font-medium">Scored using our sick library of premium, pre-made Punjabi and acoustic tracks.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-white p-2.5 rounded-full shadow-sm mr-4 mt-1 shrink-0">
+                                        <i class="fa-solid fa-camera text-brand-gold"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-brand-brown text-sm uppercase tracking-wider font-bold mb-1">The Shoot</h4>
+                                        <p class="text-gray-500 text-sm font-medium">1-2 days capturing your natural vibe at your chosen aesthetic locations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button onclick="openWhatsApp('Sat Sri Akal! I love the vibe of The Classic Kissa package (₹1,25,000). Let\'s discuss dates.')" class="bg-brand-brown text-white hover:bg-brand-pink px-8 py-3.5 rounded-full uppercase tracking-wider text-sm font-bold shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                                    Book The Classic
+                                </button>
+                                <button onclick="openModal('tier1')" class="bg-white border-2 border-gray-200 text-gray-600 hover:border-brand-brown hover:text-brand-brown px-8 py-3.5 rounded-full uppercase tracking-wider text-sm font-bold shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-table-list"></i> What's Included?
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                            <div class="text-center p-8 bg-brand-cream rounded-3xl border border-brand-gold/20 w-full max-w-xs shadow-inner">
+                                <i class="fa-solid fa-gift text-3xl text-brand-gold mb-4"></i>
+                                <h4 class="text-gray-500 uppercase tracking-widest text-xs font-bold mb-2">You Get</h4>
+                                <p class="text-brand-brown font-serif text-2xl font-bold">10-Minute</p>
+                                <p class="text-brand-pink text-sm font-bold mt-1">Short Film Masterpiece</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIER 2 -->
+                <div class="bg-gradient-to-br from-rose-50 to-white rounded-[2rem] shadow-[0_20px_50px_rgb(232,50,83,0.1)] border border-brand-pink/20 p-8 md:p-12 relative overflow-hidden transform md:-translate-y-2">
+                    <div class="punjabi-sticker -top-4 -right-4 md:-top-6 md:right-10 rotate-[15deg]">💖</div>
+                    <div class="absolute top-0 right-0 w-3 h-full bg-brand-pink"></div>
+                    <!-- Decorative element -->
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-pink/5 rounded-full blur-3xl"></div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                        <div class="lg:col-span-8">
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="bg-brand-pink text-white font-bold text-xs px-4 py-1.5 tracking-widest uppercase rounded-full flex items-center shadow-sm">
+                                    <i class="fa-solid fa-fire mr-1.5"></i> The Fan Favorite
+                                </span>
+                                <span class="text-2xl text-brand-pink font-serif font-bold">Starts ₹2,00,000</span>
+                            </div>
+                            <h2 class="font-serif text-3xl md:text-5xl text-brand-brown mb-2 font-bold">The Sajri Kahani</h2>
+                            <p class="text-brand-gold italic font-serif text-xl mb-6">"Full Main Character Energy."</p>
+                            
+                            <p class="text-gray-700 font-medium text-lg mb-8 max-w-2xl">
+                                A story that you want to write. A custom narrative showcasing the start of a beautiful promise. Step 1: Tell us the vision. Step 2: We write a custom script just for you. Step 3: You star in it.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-white">
+                                <div class="flex items-start">
+                                    <div class="bg-brand-pink/10 p-2.5 rounded-full mr-4 mt-1 shrink-0">
+                                        <i class="fa-solid fa-desktop text-brand-pink"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-brand-brown text-sm uppercase tracking-wider font-bold mb-1">1-Week Acting Class</h4>
+                                        <p class="text-gray-600 text-sm font-medium">Private on-camera coaching with our directors to kill the awkwardness and bring the swagger.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-brand-pink/10 p-2.5 rounded-full mr-4 mt-1 shrink-0">
+                                        <i class="fa-solid fa-music text-brand-pink"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-brand-brown text-sm uppercase tracking-wider font-bold mb-1">Your Own Song</h4>
+                                        <p class="text-gray-600 text-sm font-medium">A 100% original bespoke song produced with lyrics written specifically about your journey.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button onclick="openWhatsApp('Sat Sri Akal! I want my story told right. I\'m interested in The Sajri Kahani package (Starting ₹2,00,000).')" class="bg-brand-pink text-white px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-[0_10px_20px_rgb(232,50,83,0.3)] hover:-translate-y-1 hover:bg-[#d62846] transition-all duration-300 text-center">
+                                    Start Your Story
+                                </button>
+                                <button onclick="openModal('tier2')" class="bg-white/80 backdrop-blur-sm border-2 border-brand-pink/30 text-brand-pink hover:border-brand-pink hover:bg-white px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-table-list"></i> What's Included?
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                             <div class="text-center p-8 bg-white rounded-3xl border-2 border-brand-pink/20 shadow-xl relative w-full max-w-xs mt-6 md:mt-0">
+                                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-brand-gold text-white p-2 rounded-full shadow-md">
+                                    <i class="fa-solid fa-crown text-xl"></i>
+                                </div>
+                                <h4 class="text-gray-500 uppercase tracking-widest text-xs font-bold mb-4 mt-2">The Ultimate Flex</h4>
+                                <p class="text-brand-brown font-serif text-2xl font-bold mb-3">10-Min Short Film</p>
+                                <div class="w-12 h-1 bg-brand-pink/30 mx-auto mb-3 rounded-full"></div>
+                                <p class="text-brand-pink text-sm font-bold mb-2">Custom Movie Poster</p>
+                                <p class="text-brand-gold text-sm font-bold">Original Audio Track</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIER 3 -->
+                <div class="bg-brand-green rounded-[2rem] shadow-2xl border border-brand-gold/30 p-8 md:p-12 relative overflow-hidden text-brand-cream">
+                    <div class="punjabi-sticker -bottom-4 -right-4 md:bottom-8 md:-right-6 rotate-[-12deg]">🚜</div>
+                    <!-- Background texture/pattern -->
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-gold via-transparent to-transparent"></div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                        <div class="lg:col-span-8">
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <span class="bg-brand-gold text-brand-brown font-bold text-xs px-4 py-1.5 tracking-widest uppercase rounded-full shadow-md">Go Big or Go Home</span>
+                                <span class="text-2xl text-brand-gold font-serif font-bold">Starts ₹5,00,000</span>
+                            </div>
+                            <h2 class="font-serif text-3xl md:text-5xl text-white mb-2 font-bold">The Fantasy Island</h2>
+                            <p class="text-brand-gold italic font-serif text-xl mb-6">"The Ultimate Att Level."</p>
+                            
+                            <p class="text-brand-cream/80 font-medium text-lg mb-8 max-w-2xl">
+                                You aren't just making a memory; you are launching a blockbuster. Want a period drama set in 1940s undivided Punjab? Want to arrive on a vintage HMT tractor and crash your own Baraat in a high-octane action scene? Say less. We'll direct it.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 bg-black/20 p-6 rounded-2xl border border-white/10">
+                                <div class="flex items-start">
+                                    <div class="bg-white/10 p-2.5 rounded-full mr-4 mt-1 shrink-0">
+                                        <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white text-sm uppercase tracking-wider font-bold mb-1">VFX & AI Magic</h4>
+                                        <p class="text-brand-cream/70 text-sm font-medium">Transform simple venues into royal palaces with advanced visual effects.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-white/10 p-2.5 rounded-full mr-4 mt-1 shrink-0">
+                                        <i class="fa-solid fa-clapperboard text-brand-gold"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white text-sm uppercase tracking-wider font-bold mb-1">Massive Scale</h4>
+                                        <p class="text-brand-cream/70 text-sm font-medium">Drones, cinema-lighting, extras, stunt choreography, and an epic original score.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button onclick="openWhatsApp('Sat Sri Akal! I want the absolute pinnacle flex. Let\'s discuss The Fantasy Island package (Starting ₹5,00,000).')" class="bg-brand-gold text-brand-brown px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-white transition-all duration-300 text-center">
+                                    Launch Your Blockbuster
+                                </button>
+                                <button onclick="openModal('tier3')" class="bg-transparent border-2 border-brand-gold/50 text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10 px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-table-list"></i> What's Included?
+                                </button>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+                            <div class="text-center p-8 bg-black/30 rounded-3xl border border-white/10 backdrop-blur-md w-full max-w-xs">
+                                <h4 class="text-brand-gold uppercase tracking-widest text-xs font-bold mb-6">The Blockbuster Rollout</h4>
+                                <ul class="space-y-4 text-left">
+                                    <li class="flex items-center text-sm text-white font-medium bg-white/5 p-3 rounded-xl"><i class="fa-solid fa-award text-brand-gold mr-3 text-lg"></i> Magnum Opus Film</li>
+                                    <li class="flex items-center text-sm text-white font-medium bg-white/5 p-3 rounded-xl"><i class="fa-solid fa-ticket text-brand-gold mr-3 text-lg"></i> 3 Trailer Drops on Insta</li>
+                                    <li class="flex items-center text-sm text-white font-medium bg-white/5 p-3 rounded-xl"><i class="fa-solid fa-bullhorn text-brand-gold mr-3 text-lg"></i> Full PR Campaign</li>
+                                    <li class="flex items-center text-sm text-white font-medium bg-white/5 p-3 rounded-xl"><i class="fa-brands fa-imdb text-brand-gold mr-3 text-lg"></i> IMDb-Style Credits</li>
+                                    <li class="flex items-center text-sm text-white font-medium bg-white/5 p-3 rounded-xl"><i class="fa-solid fa-tv text-brand-gold mr-3 text-lg"></i> Private OTT Release</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: DIRECTORS -->
+        <div id="page-directors" class="page-section hidden fade-in py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16 relative">
+                <div class="punjabi-sticker top-0 left-4 md:left-20 rotate-[-15deg] hidden md:flex">🎬</div>
+                <div class="punjabi-sticker bottom-0 right-4 md:right-20 rotate-[20deg] hidden md:flex">😎</div>
+                <span class="inline-block bg-white border border-brand-gold/20 text-brand-gold px-4 py-1.5 rounded-full tracking-widest uppercase text-xs font-bold shadow-sm mb-4">The Visionaries</span>
+                <h1 class="font-serif text-4xl md:text-6xl text-brand-brown font-bold mb-4">
+                    Meet Your <span class="italic text-brand-pink">Hype-Men</span>
+                </h1>
+                <p class="text-gray-600 font-medium text-lg max-w-2xl mx-auto">
+                    We aren't strict film-school snobs. We're the cool creatives who tame the chaos of your 100 hyperactive relatives and direct your legacy like a true Pollywood masterpiece.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <!-- Director 1 -->
+                <div class="group">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden soft-shadow border border-gray-100 relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?q=80&w=2794&auto=format&fit=crop" alt="The Creative Director" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-brown via-brand-brown/40 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-brand-pink text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 inline-block">The Storyteller</span>
+                            <h3 class="font-serif text-3xl text-white font-bold">The Creative Director</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-medium px-2">
+                        The mastermind behind the scripts and the emotion. They don't just capture what happens; they write the narrative. From teaching you how to deliver your lines in the 1-Week Masterclass, to ensuring your Vidaai tears look cinematic, they are the soul of the set.
+                    </p>
+                </div>
+
+                <!-- Director 2 -->
+                <div class="group md:mt-16">
+                    <div class="aspect-[3/4] rounded-[2.5rem] overflow-hidden soft-shadow border border-gray-100 relative mb-6">
+                        <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2788&auto=format&fit=crop" alt="The DOP" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-brown via-brand-brown/40 to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6">
+                            <span class="bg-brand-gold text-brand-brown text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 inline-block">The Cinematic Eye</span>
+                            <h3 class="font-serif text-3xl text-white font-bold">Director of Photography</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed font-medium px-2">
+                        The tech genius wielding the RED Cinema Cameras. They are obsessed with lighting and sick drone angles. Whether they are color-grading the deep reds of your Lehenga or framing the perfect chaotic Bhangra shot amidst the smoke bombs, they make sure you look like a *Koka* superstar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center bg-brand-cream border border-brand-gold/20 p-10 rounded-[3rem] shadow-sm">
+                <p class="text-gray-600 text-lg font-medium mb-6 italic">"A standard wedding video documents the day. A great film makes you feel the *vibe*, forever."</p>
+                <button onclick="openWhatsApp('Sat Sri Akal Directors! I want to schedule a vibe check to discuss my cinematic wedding vision.')" class="bg-white border-2 border-brand-brown text-brand-brown hover:bg-brand-brown hover:text-white px-8 py-3.5 rounded-full uppercase tracking-wider text-sm font-bold shadow-sm transition-all duration-300">
+                    Vibe Check With Us
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE: ARSENAL -->
+        <div id="page-arsenal" class="page-section hidden fade-in py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16 relative">
+                <div class="punjabi-sticker top-0 left-4 md:left-20 rotate-[-20deg] hidden md:flex">🔥</div>
+                <div class="punjabi-sticker bottom-0 right-4 md:right-20 rotate-[15deg] hidden md:flex">🎥</div>
+                <span class="inline-block bg-white border border-brand-pink/20 text-brand-pink px-4 py-1.5 rounded-full tracking-widest uppercase text-xs font-bold shadow-sm mb-4">Why We Look So Good</span>
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-brown font-bold mb-4">
+                    The Tech <span class="italic text-brand-pink">Flex</span>
+                </h1>
+                <p class="text-gray-600 font-medium text-lg max-w-2xl mx-auto">
+                    You are not paying for a standard guy with a DSLR. You are stepping onto a real movie set equipped to handle Punjabi-level energy.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-brand-gold/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                    <div class="bg-brand-gold/10 w-20 h-20 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-brand-gold group-hover:scale-110 transition-all duration-500">
+                        <i class="fa-solid fa-video text-3xl text-brand-gold group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-brown font-bold mb-3">Cinema-Level Quality</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">We shoot exclusively on RED Cinema Cameras—the exact same heavy gear used in elite music videos and Pollywood blockbusters. Every frame drips with luxury.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-brand-pink/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                    <div class="bg-brand-pink/10 w-20 h-20 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-brand-pink group-hover:scale-110 transition-all duration-500">
+                        <i class="fa-solid fa-plane-up text-3xl text-brand-pink group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-brown font-bold mb-3">Aasman Ton View (Drones)</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Heavy-lift drone units for sweeping aerial shots. Whether it's the sprawling pind or a luxury resort, we give your film a massive, big-budget scale from the sky.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-brand-pink/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                    <div class="bg-brand-pink/10 w-20 h-20 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-brand-pink group-hover:scale-110 transition-all duration-500">
+                        <i class="fa-solid fa-microchip text-3xl text-brand-pink group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-brown font-bold mb-3">Next-Gen VFX & AI Editing</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">In-house VFX and cutting-edge AI enhancements to fix anything. We make sure the lighting is absolutely perfect, even when the DJ lights are going crazy in the background.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-brand-gold/20 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 group">
+                    <div class="bg-brand-gold/10 w-20 h-20 flex items-center justify-center rounded-2xl mb-6 group-hover:bg-brand-gold group-hover:scale-110 transition-all duration-500">
+                        <i class="fa-solid fa-bullhorn text-3xl text-brand-gold group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-brand-brown font-bold mb-3">Zero-Awkwardness Direction</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Guided by experienced directors who know how to pull genuine emotion out of you—and how to make your relatives look like a coordinated cast doing Bhangra.</p>
+                </div>
+            </div>
+
+            <!-- THE X-FACTOR SECTION -->
+            <div class="bg-gradient-to-br from-amber-50 to-rose-50 rounded-[2.5rem] shadow-lg border border-brand-gold/30 p-8 md:p-16 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <div class="inline-flex items-center justify-center bg-white p-4 rounded-full shadow-md mb-6">
+                        <i class="fa-solid fa-star text-4xl text-brand-gold"></i>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-5xl text-brand-brown font-bold mb-6">The Secret Sauce: <br/><span class="text-brand-pink italic">The Actor's Workshop</span></h2>
+                    <p class="text-gray-700 font-medium leading-relaxed mb-10 text-lg bg-white/60 p-6 rounded-2xl backdrop-blur-sm border border-white">
+                        We don't just point a camera at you and pray. For our premium clients, we provide a mandatory <strong class="text-brand-pink font-bold">1-Week Acting & On-Camera Masterclass</strong> before the shoot begins. We teach you how to hit your marks, deliver dialogue naturally, and carry that undeniable *Att* confidence on screen, even when the DJ is blasting Diljit on full volume.
+                    </p>
+                    <button onclick="openWhatsApp('Sat Sri Akal! I want to learn more about the 1-Week Acting Masterclass included in the premium packages.')" class="bg-brand-pink text-white px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#d62846] transition-all duration-300">
+                        Ask About The Masterclass
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: TREATMENT -->
+        <div id="page-treatment" class="page-section hidden fade-in py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-white border border-brand-pink/20 text-brand-pink px-4 py-1.5 rounded-full tracking-widest uppercase text-xs font-bold shadow-sm mb-4">VIP Add-Ons</span>
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-brown font-bold mb-4">
+                    The <span class="italic text-brand-gold">Star Treatment</span>
+                </h1>
+                <p class="text-gray-600 font-medium text-lg max-w-2xl mx-auto">
+                    Available as easy add-ons or included in the Fantasy package. Live the life of a true cinematic icon.
+                </p>
+            </div>
+
+            <div class="space-y-20">
+                <!-- NEW ITEM: THE IPHONE PAPARAZZI -->
+                <div class="flex flex-col md:flex-row gap-10 items-center relative">
+                    <div class="punjabi-sticker -top-6 left-1/4 rotate-[15deg] z-20 hidden md:flex">📱</div>
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="iphone.png" alt="The iPhone Paparazzi" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-pink/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-brands fa-instagram text-2xl text-brand-pink"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">The iPhone Paparazzi <span class="text-brand-pink text-sm ml-2 font-sans bg-brand-pink/10 px-2 py-1 rounded-full">New!</span></h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">Can't wait 3 months to post? We deploy a dedicated "Social Content Creator" armed with an iPhone 15 Pro Max to follow you around like paparazzi. They shoot raw, aesthetic behind-the-scenes vibes and edit 3-5 viral-ready Reels, AirDropped to you *on the same day*.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I NEED the iPhone Paparazzi add-on for my wedding. Let\'s chat.')" class="inline-flex items-center text-brand-pink font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-pink pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- item 0: The Premiere Invite Box -->
+                <div class="flex flex-col md:flex-row-reverse gap-10 items-center relative">
+                    <div class="punjabi-sticker -top-6 right-1/4 rotate-[15deg] z-20 hidden md:flex">🎫</div>
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="marage.png" alt="The Premiere Invite Box" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-gold/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-solid fa-box-open text-2xl text-brand-gold"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">The Premiere Invite Box</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">We send a YouTube trailer link and custom poster to hype your relatives before the Shaadi. Want to go bigger? Send them an official physical "Movie Premiere Invite Box" with your custom poster, gourmet popcorn, and premium Punjabi sweets.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I\'m interested in adding \'The Premiere Invite Box\' to my wedding cinematic experience. Let\'s chat.')" class="inline-flex items-center text-brand-gold font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-gold pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- item 1 -->
+                <div class="flex flex-col md:flex-row gap-10 items-center relative">
+                    <div class="punjabi-sticker -top-6 left-1/4 rotate-[-12deg] z-20 hidden md:flex">🍿</div>
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2940&auto=format&fit=crop" alt="The Grand Multiplex Premiere" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-pink/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-solid fa-popcorn text-2xl text-brand-pink"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">The Grand Multiplex Premiere</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">We rent out a local PVR/Cinepolis screen. Your family and friends arrive on a red carpet with custom backdrops to watch your movie premiere with popcorn on the big screen. A massive family flex.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I\'m interested in adding \'The Grand Multiplex Premiere\' to my wedding cinematic experience. Let\'s chat.')" class="inline-flex items-center text-brand-pink font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-pink pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- item 2 -->
+                <div class="flex flex-col md:flex-row-reverse gap-10 items-center relative">
+                    <div class="punjabi-sticker -bottom-6 right-1/4 rotate-[15deg] z-20 hidden md:flex">🎶</div>
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2874&auto=format&fit=crop" alt="Official Music Release" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-gold/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-brands fa-spotify text-2xl text-brand-gold"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">Official Spotify Release</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">For custom scripts, we upload your specifically produced Punjabi wedding song to Spotify and Apple Music with your custom movie poster serving as the official album art.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I\'m interested in adding \'Official Music Release\' to my wedding cinematic experience. Let\'s chat.')" class="inline-flex items-center text-brand-gold font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-gold pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- item 3 -->
+                <div class="flex flex-col md:flex-row gap-10 items-center">
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="https://images.unsplash.com/photo-1533422902700-50c25b849206?q=80&w=2940&auto=format&fit=crop" alt="Cinematic Posters" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-pink/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-solid fa-image text-2xl text-brand-pink"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">Cinematic Movie Posters</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">High-end, dramatic Pollywood-style movie posters featuring the couple. Framed for your living room and printed as life-size standees for the wedding events.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I\'m interested in adding \'Cinematic Posters\' to my wedding cinematic experience. Let\'s chat.')" class="inline-flex items-center text-brand-pink font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-pink pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- item 4 -->
+                <div class="flex flex-col md:flex-row-reverse gap-10 items-center relative">
+                    <div class="punjabi-sticker top-1/2 -left-6 rotate-[-25deg] z-20 hidden md:flex">🤣</div>
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="Gemini_Generated_Image_u5z0nku5z0nku5z0.png" alt="The BTS Documentary" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-gold/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-solid fa-masks-theater text-2xl text-brand-gold"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">The BTS Documentary</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">A raw, beautifully edited 'Making Of' video showing your 1-week acting classes, bloopers, the Chacha who wouldn't leave the frame, and the pure comedy of creating the film. The families' absolute favorite.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I\'m interested in adding \'The BTS Documentary\' to my wedding cinematic experience. Let\'s chat.')" class="inline-flex items-center text-brand-gold font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-gold pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- item 5 -->
+                <div class="flex flex-col md:flex-row gap-10 items-center relative">
+                    <div class="punjabi-sticker top-1/4 -right-6 rotate-[20deg] z-20 hidden md:flex">📺</div>
+                    <div class="w-full md:w-1/2">
+                        <div class="aspect-[16/9] rounded-3xl overflow-hidden soft-shadow border border-gray-100 group">
+                            <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=2940&auto=format&fit=crop" alt="OTT Release" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <div class="bg-brand-pink/10 w-12 h-12 flex items-center justify-center rounded-xl mb-4">
+                            <i class="fa-solid fa-tv text-2xl text-brand-pink"></i>
+                        </div>
+                        <h3 class="font-serif text-3xl text-brand-brown font-bold mb-4">Private OTT Release</h3>
+                        <p class="text-gray-600 font-medium leading-relaxed mb-8 text-lg">We create a custom, password-protected streaming platform that looks exactly like a cinema platform for your film. Share the VIP link with relatives worldwide so they can stream your movie straight to their smart TVs.</p>
+                        <button onclick="openWhatsApp('Sat Sri Akal! I\'m interested in adding the \'Private OTT Release\' to my wedding cinematic experience. Let\'s chat.')" class="inline-flex items-center text-brand-pink font-bold uppercase tracking-wider text-sm hover:text-brand-brown transition-colors border-b-2 border-brand-pink pb-1 hover:border-brand-brown">
+                            I want this extra <i class="fa-solid fa-chevron-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-24 text-center bg-white p-12 rounded-[3rem] shadow-xl border border-brand-pink/10">
+                <div class="inline-flex items-center justify-center bg-brand-pink/10 p-4 rounded-full mb-6">
+                    <i class="fa-solid fa-heart text-3xl text-brand-pink"></i>
+                </div>
+                <h2 class="font-serif text-3xl md:text-5xl text-brand-brown font-bold mb-6">Ready for your Main Character moment?</h2>
+                <button onclick="openWhatsApp('Sat Sri Akal Ahuja Di Clip Production. Let\'s schedule a vibe check to create my Shaadi blockbuster.')" class="bg-brand-pink text-white px-10 py-5 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#d62846] transition-all duration-300">
+                    Talk To Us
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE: GALLERY (BOX OFFICE HITS) -->
+        <div id="page-gallery" class="page-section hidden fade-in py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center mb-16 relative">
+                <div class="punjabi-sticker top-0 left-4 md:left-20 rotate-[-15deg] hidden md:flex">🏆</div>
+                <div class="punjabi-sticker bottom-0 right-4 md:right-20 rotate-[20deg] hidden md:flex">✨</div>
+                <span class="inline-block bg-white border border-brand-gold/20 text-brand-gold px-4 py-1.5 rounded-full tracking-widest uppercase text-xs font-bold shadow-sm mb-4">Our Portfolio</span>
+                <h1 class="font-serif text-4xl md:text-6xl text-brand-brown font-bold mb-4">
+                    The Box Office <span class="italic text-brand-pink">Hits</span>
+                </h1>
+                <p class="text-gray-600 font-medium text-lg max-w-2xl mx-auto">
+                    We don't just shoot weddings; we drop blockbusters. Check out the cinematic posters from some of our highest-grossing love stories.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Poster 1 -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="aspect-[2/3] rounded-2xl overflow-hidden relative soft-shadow">
+                        <img src="https://images.unsplash.com/photo-1544078755-2c833aa822bb?q=80&w=2800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Poster 1">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-brown via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-0 right-0 text-center px-4">
+                            <h3 class="font-serif text-2xl text-white font-bold mb-1">The Chandigarh Connection</h3>
+                            <p class="text-brand-gold uppercase tracking-widest text-[10px] font-bold">A Romance Blockbuster</p>
+                        </div>
+                    </div>
+                    <div class="pt-6 pb-2 px-2 text-center">
+                        <div class="flex justify-center text-brand-gold text-sm mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 font-medium italic text-sm">"Absolute cinematic flex. Even Dadi cried during the Vidaai scene."</p>
+                        <p class="text-brand-pink text-xs font-bold mt-2 uppercase tracking-widest">- 10/10 IMDb</p>
+                    </div>
+                </div>
+
+                <!-- Poster 2 -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 mt-0 lg:mt-12">
+                    <div class="aspect-[2/3] rounded-2xl overflow-hidden relative soft-shadow">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2787&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Poster 2">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-brown via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-0 right-0 text-center px-4">
+                            <h3 class="font-serif text-2xl text-white font-bold mb-1">Surrey to Pind</h3>
+                            <p class="text-brand-gold uppercase tracking-widest text-[10px] font-bold">An NRI Action-Comedy</p>
+                        </div>
+                    </div>
+                    <div class="pt-6 pb-2 px-2 text-center">
+                        <div class="flex justify-center text-brand-gold text-sm mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 font-medium italic text-sm">"Best action sequence of the year when the Chachas fought over the DJ."</p>
+                        <p class="text-brand-pink text-xs font-bold mt-2 uppercase tracking-widest">- Box Office Smash</p>
+                    </div>
+                </div>
+
+                <!-- Poster 3 -->
+                <div class="group relative bg-white rounded-3xl p-4 shadow-md border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+                    <div class="aspect-[2/3] rounded-2xl overflow-hidden relative soft-shadow">
+                        <img src="https://images.unsplash.com/photo-1621886136270-e55543c1626f?q=80&w=2835&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Poster 3">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-brown via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-0 right-0 text-center px-4">
+                            <h3 class="font-serif text-2xl text-white font-bold mb-1">Jago Madness</h3>
+                            <p class="text-brand-gold uppercase tracking-widest text-[10px] font-bold">A Musical Extravaganza</p>
+                        </div>
+                    </div>
+                    <div class="pt-6 pb-2 px-2 text-center">
+                        <div class="flex justify-center text-brand-gold text-sm mb-2">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 font-medium italic text-sm">"The choreography was pure fire. It looked like a 100 Crore Bollywood set."</p>
+                        <p class="text-brand-pink text-xs font-bold mt-2 uppercase tracking-widest">- 5 Stars</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <button onclick="openWhatsApp('Sat Sri Akal! I want to star in your next Blockbuster Hit! Let\'s discuss dates.')" class="bg-brand-brown text-brand-cream hover:bg-brand-gold hover:text-brand-brown px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    Star In Our Next Hit
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE: MOVIE QUIZ -->
+        <div id="page-quiz" class="page-section hidden fade-in py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto min-h-[70vh] flex flex-col justify-center">
+            <div class="text-center mb-10">
+                <span class="inline-block bg-brand-pink text-white px-4 py-1.5 rounded-full tracking-widest uppercase text-xs font-bold shadow-sm mb-4"><i class="fa-solid fa-clapperboard mr-1"></i> Interactive Setup</span>
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-brown font-bold mb-4">
+                    What's Your <span class="italic text-brand-gold">Shaadi Vibe?</span>
+                </h1>
+                <p class="text-gray-600 font-medium text-lg max-w-xl mx-auto">
+                    Take this quick 3-question vibe check to find out what cinematic genre matches your love story.
+                </p>
+            </div>
+
+            <!-- Quiz Container -->
+            <div class="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 p-8 md:p-12 relative overflow-hidden">
+                <!-- Progress Bar -->
+                <div id="quiz-progress" class="flex justify-center gap-2 mb-8">
+                    <div class="h-2 w-12 rounded-full bg-brand-pink transition-all duration-300" id="step-1-dot"></div>
+                    <div class="h-2 w-12 rounded-full bg-gray-200 transition-all duration-300" id="step-2-dot"></div>
+                    <div class="h-2 w-12 rounded-full bg-gray-200 transition-all duration-300" id="step-3-dot"></div>
+                </div>
+
+                <!-- Dynamic Quiz Content -->
+                <div id="quiz-content" class="min-h-[250px] flex flex-col justify-center">
+                    <!-- JS injects questions here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PACKAGE DETAILS MODAL -->
+        <div id="package-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+            <div class="absolute inset-0 bg-brand-brown/70 backdrop-blur-md cursor-pointer" onclick="closeModal()"></div>
+            <div class="bg-white w-full max-w-4xl max-h-[90vh] flex flex-col rounded-[2rem] shadow-2xl relative z-10 transform scale-95 transition-transform duration-300" id="modal-container">
+                <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-400 hover:text-brand-pink text-3xl transition-colors z-20 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="p-6 md:p-10 overflow-y-auto w-full custom-scrollbar" id="modal-content">
+                    <!-- Dynamic content injected here via JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 bg-[#2D231E] pt-16 pb-8 border-t-[8px] border-brand-pink">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <h2 class="font-serif text-2xl text-brand-cream tracking-wide font-bold mb-4">
+                        Ahuja <span class="text-brand-pink italic">Di Clip</span>
+                    </h2>
+                    <p class="text-sm text-brand-cream/70 font-medium leading-relaxed mb-6">
+                        We are not boring wedding videographers; we are a premium film production house crafting high-end, culturally rich, and visually breathtaking blockbusters starring you.
+                    </p>
+                    <button onclick="openWhatsApp('Sat Sri Akal! I want to explore my options for a cinematic wedding short film.')" class="flex items-center bg-white/10 hover:bg-brand-pink text-white px-4 py-2 rounded-full text-sm font-bold transition-colors w-max">
+                        <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>
+                        CONNECT WITH THE CREW
+                    </button>
+                </div>
+                <div>
+                    <h3 class="font-serif text-brand-gold tracking-widest uppercase mb-6 text-sm font-bold">Quick Links</h3>
+                    <ul class="space-y-4">
+                        <li><button onclick="showPage('home')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">The Vibe</button></li>
+                        <li><button onclick="showPage('packages')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">Packages</button></li>
+                        <li><button onclick="showPage('directors')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">The Crew</button></li>
+                        <li><button onclick="showPage('arsenal')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">Tech Flex</button></li>
+                        <li><button onclick="showPage('treatment')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">VIP Extras</button></li>
+                        <li><button onclick="showPage('gallery')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">Hit Movies</button></li>
+                        <li><button onclick="showPage('quiz')" class="text-brand-cream/70 hover:text-brand-pink font-bold text-sm uppercase tracking-wider transition-colors">Vibe Quiz</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-serif text-brand-gold tracking-widest uppercase mb-6 text-sm font-bold">The Studio</h3>
+                    <p class="text-sm text-brand-cream/70 font-medium mb-2"><i class="fa-solid fa-location-dot mr-2 text-brand-pink"></i> Punjab, India</p>
+                    <p class="text-sm text-brand-cream/70 font-medium mb-6"><i class="fa-solid fa-globe mr-2 text-brand-pink"></i> Available globally for NRI & Destination Shoots.</p>
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <p class="text-xs text-brand-gold uppercase tracking-widest font-bold">
+                            Cinematic Luxury meets Pure Punjabi Bhasad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-white/10 text-xs text-brand-cream/50 tracking-widest uppercase font-bold">
+                &copy; <span id="current-year"></span> Ahuja Di Clip Production. Your Shaadi Blockbuster.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- CONFIGURATION ---
+        const WHATSAPP_NUMBER = "917814288217"; // Your actual WhatsApp number
+
+        // WhatsApp Redirect Function
+        function openWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Single Page Navigation Logic
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.add('hidden');
+                // Force animation restart trick
+                el.classList.remove('fade-in');
+                void el.offsetWidth;
+            });
+
+            // Show target page
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('fade-in');
+            }
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Reset Quiz if navigating to it
+            if (pageId === 'quiz') {
+                startQuiz();
+            }
+
+            // Update Navigation Highlighting (Desktop & Mobile)
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(el => {
+                if (el.classList.contains('mobile-nav-link')) {
+                    el.classList.remove('text-brand-pink', 'bg-brand-pink/5');
+                    el.classList.add('text-gray-500');
+                } else {
+                    el.classList.remove('text-brand-pink');
+                    el.classList.add('text-gray-500');
+                }
+            });
+
+            document.querySelectorAll(`[data-target="${pageId}"]`).forEach(el => {
+                if (el.classList.contains('mobile-nav-link')) {
+                    el.classList.remove('text-gray-500');
+                    el.classList.add('text-brand-pink', 'bg-brand-pink/5');
+                } else {
+                    el.classList.remove('text-gray-500');
+                    el.classList.add('text-brand-pink');
+                }
+            });
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // --- MODAL LOGIC FOR PACKAGE DETAILS ---
+        const packageDetails = {
+            tier1: {
+                title: "The Classic Kissa",
+                price: "₹1,25,000",
+                colorText: "text-brand-brown",
+                bgHeader: "bg-brand-cream border border-gray-200",
+                icon: "fa-film",
+                btnClass: "bg-brand-brown text-white hover:bg-brand-pink",
+                data: [
+                    ["Concept & Scripting", "Cute, simple efforts. A beautifully pre-written short film story (Not actual Baraat/real events)."],
+                    ["Release Strategy", "<span class='font-bold text-brand-brown'>Trailer link on YouTube + Custom Poster</span> sent to you before Shaadi. Movie releases on the Shaadi day!"],
+                    ["Shoot Duration", "1-2 Days coverage"],
+                    ["Locations", "1-2 Handpicked Local Aesthetics (e.g., Heritage Havelis, Modern Cityscapes, Farms)."],
+                    ["Music & Audio", "Scored using our exclusive library of premium pre-made Punjabi and acoustic tracks."],
+                    ["Acting Class", "<span class='text-gray-400 italic'><i class='fa-solid fa-xmark mr-1'></i> Not Included (Pure Candid Vibe)</span>"],
+                    ["Cinematography", "Industry-Standard RED Cinema Cameras + Standard Drone Shots"],
+                    ["Deliverables", "<span class='font-bold text-brand-brown'>10-Minute Short Film Masterpiece</span> (Professionally Edited & Color Graded)"],
+                    ["Star Treatment Add-ons", "Available for purchase (Premiere Invite Box, BTS Documentary, etc.)"]
+                ],
+                whatsapp: "Sat Sri Akal! I am interested in 'The Classic Kissa' package (₹1,25,000). Please share more details."
+            },
+            tier2: {
+                title: "The Sajri Kahani",
+                price: "Starts ₹2,00,000",
+                colorText: "text-brand-pink",
+                bgHeader: "bg-brand-pink/10 border border-brand-pink/20",
+                icon: "fa-fire",
+                btnClass: "bg-brand-pink text-white hover:bg-[#d62846]",
+                data: [
+                    ["Concept & Scripting", "<span class='font-bold text-brand-pink'>100% Custom Script</span>. A story you want to write, showcasing the start of a beautiful promise."],
+                    ["Release Strategy", "<span class='font-bold text-brand-pink'>Trailer link on YouTube + Custom Poster</span> sent to you before Shaadi. Movie releases on the Shaadi day!"],
+                    ["Shoot Duration", "2-3 Days dedicated shooting"],
+                    ["Locations", "Multiple Premium Locations, carefully scouted and tailored specifically to your custom script."],
+                    ["Music & Audio", "<span class='font-bold text-brand-pink'>100% Original Custom Song</span> produced in-house with lyrics written specifically about your journey."],
+                    ["Acting Class", "<span class='font-bold text-brand-pink'><i class='fa-solid fa-check mr-1'></i> Included (1-Week Private Masterclass)</span> with directors to perfect screen presence."],
+                    ["Cinematography", "RED Cinema Cameras + Advanced Heavy-Lift Drones + Dedicated Cinematic Lighting Crew"],
+                    ["Deliverables", "<span class='font-bold text-brand-pink'>10-Min Custom Short Film</span> + Original Audio Track Provided + Digital Custom Movie Poster"],
+                    ["Star Treatment Add-ons", "Available for purchase (Premiere Invite Box, Music Release, etc.)"]
+                ],
+                whatsapp: "Sat Sri Akal! I want my story told right. I'm interested in 'The Sajri Kahani' custom package (Starting ₹2,00,000)."
+            },
+            tier3: {
+                title: "The Fantasy Island",
+                price: "Starts ₹5,00,000",
+                colorText: "text-brand-gold",
+                bgHeader: "bg-brand-green border border-brand-gold/30",
+                titleColor: "text-white",
+                icon: "fa-crown",
+                btnClass: "bg-brand-gold text-brand-brown hover:bg-white border border-brand-gold",
+                data: [
+                    ["Concept & Scripting", "<span class='font-bold text-brand-gold'>Bespoke Blockbuster Fantasy</span> (e.g., 1940s Period Drama, Action Thriller, Yacht Romance). Endless possibilities."],
+                    ["Shoot Duration", "3-5 Days of massive scale production"],
+                    ["Locations", "Unlimited Locations / Complex Bespoke Set Designs built for your script."],
+                    ["Music & Audio", "<span class='font-bold text-brand-gold'>Multi-track Original Score</span> including a hyped entry anthem, a romantic ballad, and elite BGM sound design."],
+                    ["Acting Class", "1-Week Masterclass + <span class='font-bold text-brand-gold'>Stunt & Choreography Prep</span> for complex dance or action sequences."],
+                    ["Cinematography", "Full Hollywood-scale crew, RED Cams, Heavy Drones, Background Extras, Stylists on standby."],
+                    ["VFX & Editing", "<span class='font-bold text-brand-gold'>Full VFX & AI Magic included</span> for advanced world-building and hyper-stylized shots."],
+                    ["Deliverables", "<span class='font-bold text-brand-gold'>Magnum Opus Film</span> + 3 Insta Trailer Drops + PR Campaign + IMDb-Style Credits + <span class='font-bold text-white bg-brand-pink px-2 py-0.5 rounded ml-1'>Private OTT Release</span>"]
+                ],
+                whatsapp: "Sat Sri Akal! I want the absolute pinnacle flex. Let's discuss 'The Fantasy Island' blockbuster package (Starting ₹5,00,000)."
+            }
+        };
+
+        function openModal(tier) {
+            const modal = document.getElementById('package-modal');
+            const container = document.getElementById('modal-container');
+            const content = document.getElementById('modal-content');
+            const data = packageDetails[tier];
+
+            const titleColor = data.titleColor || "text-brand-brown";
+
+            let tableRows = data.data.map((row, index) => `
+                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}">
+                    <td class="py-4 px-5 font-bold text-gray-700 w-1/3 md:w-1/4 align-top text-sm md:text-base border-r border-gray-100">${row[0]}</td>
+                    <td class="py-4 px-5 text-gray-600 align-top text-sm md:text-base">${row[1]}</td>
+                </tr>
+            `).join('');
+
+            content.innerHTML = `
+                <div class="flex items-center gap-5 mb-8 ${data.bgHeader} p-6 md:p-8 rounded-[1.5rem] shadow-sm relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 opacity-10">
+                        <i class="fa-solid ${data.icon} text-9xl"></i>
+                    </div>
+                    <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-white rounded-2xl shadow-md z-10 shrink-0">
+                        <i class="fa-solid ${data.icon} text-2xl md:text-3xl ${data.colorText}"></i>
+                    </div>
+                    <div class="z-10">
+                        <h2 class="font-serif text-2xl md:text-4xl font-bold ${titleColor} mb-1">${data.title}</h2>
+                        <p class="${data.colorText} font-bold text-lg md:text-xl bg-white/90 inline-block px-3 py-1 rounded-lg mt-1 shadow-sm">${data.price}</p>
+                    </div>
+                </div>
+                
+                <h3 class="font-bold text-gray-800 uppercase tracking-widest text-xs mb-4 ml-2">What's Included:</h3>
+                
+                <div class="overflow-hidden rounded-2xl border border-gray-200 shadow-sm mb-8 bg-white">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-4 px-5 font-bold text-gray-500 uppercase tracking-wider text-xs border-b border-gray-200 border-r">Feature</th>
+                                <th class="py-4 px-5 font-bold text-gray-500 uppercase tracking-wider text-xs border-b border-gray-200">The Breakdown</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${tableRows}
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="text-center mt-8 bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                    <p class="text-gray-500 text-sm font-medium mb-4">Ready to lock in this package for your big day?</p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <button onclick="closeModal()" class="bg-white border-2 border-gray-200 text-gray-600 hover:border-brand-brown hover:text-brand-brown px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-sm transition-all duration-300">
+                            Back to Plans
+                        </button>
+                        <button onclick="openWhatsApp('${data.whatsapp}')" class="${data.btnClass} px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                            Book ${data.title} Now
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            // Slight delay for smooth animation
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                container.classList.remove('scale-95');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('package-modal');
+            const container = document.getElementById('modal-container');
+            
+            modal.classList.add('opacity-0');
+            container.classList.add('scale-95');
+            
+            // Wait for fade out
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }, 300);
+        }
+
+        // --- BUILD YOUR BLOCKBUSTER QUIZ LOGIC ---
+        const quizData = [
+            {
+                question: "Scene 1: How did your story actually begin?",
+                options: [
+                    { text: "Childhood sweethearts / Pind connection", score: "classic" },
+                    { text: "Slid into the Instagram DMs", score: "modern" },
+                    { text: "Arranged meeting, but made it spicy", score: "comedy" },
+                    { text: "Met overseas / University campus", score: "nri" }
+                ]
+            },
+            {
+                question: "Scene 2: What's the exact energy of your Baraat/Entry?",
+                options: [
+                    { text: "Full Kalesh, 10 Dhols, and torn shirts", score: "comedy" },
+                    { text: "Royal, elegant, and timeless", score: "classic" },
+                    { text: "Hype tracks, smoke bombs, and Diljit", score: "modern" },
+                    { text: "Vintage cars and high-fashion flex", score: "nri" }
+                ]
+            },
+            {
+                question: "Scene 3: If your wedding was a movie, the climax would be...",
+                options: [
+                    { text: "The deeply emotional, tearful Vidaai", score: "classic" },
+                    { text: "The Chachas fighting over the DJ playlist", score: "comedy" },
+                    { text: "Our highly choreographed first dance", score: "modern" },
+                    { text: "Popping champagne at the reception", score: "nri" }
+                ]
+            }
+        ];
+
+        const quizResults = {
+            classic: {
+                title: "The Timeless Royal Romance",
+                desc: "Your love story is a classic. You need a film filled with acoustic melodies, slow-motion stolen glances, heritage architecture, and deep, pure emotion.",
+                icon: "fa-heart",
+                color: "text-brand-pink"
+            },
+            comedy: {
+                title: "The Full-Chaos Punjabi Comedy",
+                desc: "Your wedding is going to be wild! You need a highly energetic, fast-paced edit featuring the Jago madness, the bloopers, and pure, unfiltered fun.",
+                icon: "fa-face-laugh-squint",
+                color: "text-brand-gold"
+            },
+            modern: {
+                title: "The Modern Starboy Blockbuster",
+                desc: "Hype, swagger, and main-character energy. Your film needs heavy bass, slick transitions, RED camera cinematic lighting, and a massive scale.",
+                icon: "fa-bolt",
+                color: "text-brand-brown"
+            },
+            nri: {
+                title: "The NRI High-Fashion Drama",
+                desc: "Old money meets new era. Your film requires sweeping drone shots, elegant styling, a bespoke storyline bridging two worlds, and peak luxury.",
+                icon: "fa-plane-up",
+                color: "text-brand-green"
+            }
+        };
+
+        let currentQuestion = 0;
+        let userScores = { classic: 0, comedy: 0, modern: 0, nri: 0 };
+
+        function startQuiz() {
+            currentQuestion = 0;
+            userScores = { classic: 0, comedy: 0, modern: 0, nri: 0 };
+            updateQuizUI();
+        }
+
+        function handleAnswer(scoreType) {
+            userScores[scoreType]++;
+            currentQuestion++;
+            
+            if (currentQuestion < quizData.length) {
+                updateQuizUI();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function updateQuizUI() {
+            const content = document.getElementById('quiz-content');
+            const data = quizData[currentQuestion];
+            
+            // Update progress bar
+            for(let i=1; i<=3; i++) {
+                const dot = document.getElementById(`step-${i}-dot`);
+                if(i <= currentQuestion + 1) {
+                    dot.classList.remove('bg-gray-200');
+                    dot.classList.add('bg-brand-pink');
+                } else {
+                    dot.classList.add('bg-gray-200');
+                    dot.classList.remove('bg-brand-pink');
+                }
+            }
+
+            // Animate content out and in
+            content.style.opacity = 0;
+            
+            setTimeout(() => {
+                let optionsHTML = data.options.map(opt => `
+                    <button onclick="handleAnswer('${opt.score}')" class="w-full text-left p-4 md:p-5 rounded-2xl border-2 border-gray-100 hover:border-brand-pink hover:bg-brand-pink/5 text-gray-700 font-bold transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1">
+                        ${opt.text}
+                    </button>
+                `).join('');
+
+                content.innerHTML = `
+                    <h3 class="font-serif text-2xl md:text-3xl text-brand-brown font-bold mb-8 text-center">${data.question}</h3>
+                    <div class="space-y-4 max-w-2xl mx-auto w-full">
+                        ${optionsHTML}
+                    </div>
+                `;
+                content.style.opacity = 1;
+                content.style.transition = "opacity 0.4s ease";
+            }, 300);
+        }
+
+        function showQuizResult() {
+            const content = document.getElementById('quiz-content');
+            
+            // Determine winner
+            let highestScore = 0;
+            let winningType = 'classic'; // default
+            
+            for (const [type, score] of Object.entries(userScores)) {
+                if (score > highestScore) {
+                    highestScore = score;
+                    winningType = type;
+                }
+            }
+            
+            const result = quizResults[winningType];
+            const waMessage = `Sat Sri Akal Ahuja Di Clip Production! I just took the vibe check and my cinematic genre is '${result.title}'. Let's discuss bringing this vision to life!`;
+
+            content.style.opacity = 0;
+            
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div class="text-center fade-in">
+                        <div class="inline-flex items-center justify-center bg-gray-50 p-6 rounded-full mb-6 border-4 border-gray-100 shadow-inner">
+                            <i class="fa-solid ${result.icon} text-6xl ${result.color}"></i>
+                        </div>
+                        <h4 class="text-gray-500 uppercase tracking-widest text-xs font-bold mb-2">Your Movie Genre Is:</h4>
+                        <h2 class="font-serif text-3xl md:text-5xl text-brand-brown font-bold mb-4">${result.title}</h2>
+                        <p class="text-gray-600 font-medium text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+                            ${result.desc}
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                            <button onclick="startQuiz()" class="text-gray-500 font-bold uppercase tracking-wider text-sm hover:text-brand-pink transition-colors px-6 py-4">
+                                <i class="fa-solid fa-rotate-right mr-2"></i> Retake Vibe Check
+                            </button>
+                            <button onclick="openWhatsApp('${waMessage}')" class="bg-brand-gold text-brand-brown px-8 py-4 rounded-full uppercase tracking-wider text-sm font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-brand-pink hover:text-white transition-all duration-300">
+                                Send Script To Director
+                            </button>
+                        </div>
+                    </div>
+                `;
+                content.style.opacity = 1;
+            }, 300);
+        }
+    </script>
+</body>
+</html>
